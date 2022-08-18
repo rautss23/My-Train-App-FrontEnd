@@ -53,7 +53,7 @@ export class UpdateTrain extends Component {
                                         <th style={{fontSize : '16px'}}>Arrival Time</th>
                                         <th style={{fontSize : '16px'}}>Departure Time</th>
                                         <th style={{fontSize : '16px'}}>Seats</th>
-                                        <th style={{fontSize : '16px'}}>Date</th>  
+                                        {/* <th style={{fontSize : '16px'}}>Date</th>   */}
                                         <th style={{fontSize : '16px'}}>Actions</th>                     
                                     </tr>
                                 </thead>
@@ -74,7 +74,7 @@ export class UpdateTrain extends Component {
                                                     <td  style={{fontSize : '14px'}}>{train.arrivalTime}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.departureTime}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.seatsLeft}</td>
-                                                    <td  style={{fontSize : '14px'}}>{train.date}</td>
+                                                    {/* <td  style={{fontSize : '14px'}}>{train.date}</td> */}
                                                     <td>
                                                     <ButtonGroup>
                                                         <Link to={"updateTrain/"+ train.trainId} className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faEdit} /></Link>{' '}

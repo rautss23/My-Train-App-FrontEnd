@@ -1,10 +1,7 @@
 import axios from 'axios'
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import {Form, Card, Button, Col, Jumbotron} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class ReserveTrain extends Component {
 
@@ -16,7 +13,7 @@ export class ReserveTrain extends Component {
             name : "",
             source : "",
             destination : "",
-            startDate : new Date(),
+            date : "",
             departureTime : 0,
             arrivalTime : 0,
             duration : 0,
@@ -30,11 +27,8 @@ export class ReserveTrain extends Component {
             result : '',
             payment : false,
             error : ''
-       };
-       this.handleDateChange=this.handleDateChange.bind(this);
+       }
     }
-
-   
 
     getUsername = () => {
         axios.get('http://localhost:8081/showProfile', { headers: {Authorization : `Bearer ${localStorage.getItem('jwtToken')}`} } )
@@ -53,7 +47,7 @@ export class ReserveTrain extends Component {
                 name : res.data.name,
                 source : res.data.source,
                 destination : res.data.destination,
-                // date : res.data.date,
+                date : res.data.date,
                 departureTime : res.data.departureTime,
                 arrivalTime : res.data.arrivalTime,
                 duration : res.data.duration,
@@ -73,19 +67,11 @@ export class ReserveTrain extends Component {
        }
 
     
-       handleDateChange (date) {
-        this.setState({
-            startDate : date
-        })
-    }
-
-    
-    
-    // handleDateChange = e => {
-    //        this.setState({
-    //            date : e.target.value.toString()
-    //        })
-    //    }
+    handleDateChange = e => {
+           this.setState({
+               date : e.target.value.toString()
+           })
+       }
     
     fareCalculator = () => {
         if(this.state.quota === 'General')
@@ -184,17 +170,7 @@ export class ReserveTrain extends Component {
                         
                          <Form.Group controlId="formGridDate">
                             <Form.Label>Date</Form.Label>
-                            {/* <Form.Control type="date" name="date" id="date" 
-                            // value={date}
-                            /> */}
-
-                            <DatePicker
-              selected={ this.state.startDate }
-              onChange={ this.handleDateChange }
-              name="startDate"
-              dateFormat="MM/dd/yyyy"
-          />
-
+                            <Form.Control type="date" name="date" id="date" value={date} onChange={this.handleDateChange}/>
                         </Form.Group>
 
                         <Form.Group controlId="formGridSeats">
@@ -204,7 +180,6 @@ export class ReserveTrain extends Component {
 
                         <Form.Group controlId="formGridQuota">
                             <Form.Label>Quota</Form.Label>
-                            
                             <select className="form-control" id="quota" name="quota" value={quota} onChange={this.handleChange} required>
                                                 <option value="General">General</option>
                                                 <option value="Ladies">Ladies</option>
@@ -227,7 +202,7 @@ export class ReserveTrain extends Component {
                     <Jumbotron className="text-center bg-dark text-warning jumbotron" style={{marginTop : "50px"}}>
                             <h2><strong>{this.state.result}</strong></h2>
                             <p className="text-white">
-                               <Link to="/bookings">Check My Bookings Section for details!</Link>
+                               <Link to="/bookings" style={{fontWeight:'bold'}}>Check My Bookings Section for details!</Link>
                             </p>
                         </Jumbotron>
                 </div> }

@@ -54,23 +54,23 @@ export class RegistrationForm extends Component {
   validateForm = () => {
     let valid = true;
     let er = this.state.errors;
-    if (this.state.name.length < 5) {
-      er.nameError = "Name cannot be less than 5 characters!";
+    if (this.state.name.length < 5 || this.state.name.length > 21) {
+      er.nameError = "Name must be between than 6 to 20 characters!";
     }
-    if (this.state.username.length < 5) {
-      er.usernameError = "UserName cannot be less than 5 characters!";
+    if (this.state.username.length < 5 || this.state.username.length > 10) {
+      er.usernameError = "UserName must be between 5 to 9 characters!";
     }
-    if (this.state.password.length < 7) {
-      er.passwordError = "Password cannot be less than 8 characters!";
+    if (this.state.password.length < 7 || this.state.password.length > 11) {
+      er.passwordError = "Password be between 8 to 10 characters!";
     }
     if (!validEmailRegex.test(this.state.email)) {
       er.emailError = "Invalid Email!";
     }
-    if (this.state.age < 12) {
-      er.ageError = "Age cannot be below 12!";
+    if (this.state.age < 12 || this.state.age > 100) {
+      er.ageError = "Enter valid age";
     }
-    if (this.state.contact < 9) {
-      er.contactError = "Contact must be 10 digit only!";
+    if (this.state.contact < 999999999 || this.state.contact > 10000000000) {
+      er.contactError = "Enter valid contact";
     }
     this.setState({
       errors: er,
@@ -106,7 +106,9 @@ export class RegistrationForm extends Component {
                 <img src="registerhere.png" alt="register here" />
                 <h3>Welcome</h3>
                 <p>You are 1 step away from being a part of us!</p>
-                <br />
+                <Link to='/login'>
+                        <input type="submit" name="" value="Login"/>
+                </Link>
               </div>
               <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
