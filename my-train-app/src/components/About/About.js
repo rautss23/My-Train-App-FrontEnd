@@ -19,7 +19,7 @@ function About() {
                         <Card.Header>
                             <h5><strong>Features</strong></h5>
                         </Card.Header>
-                        <Card.Img variant="top" src="https://www.irctctourism.com/gallery/assets/images/gallery/HILL%20RAILWAYS/Darjeeling%20Himalayan%20Railways/3.jpg" height="300px"/>
+                        <Card.Img variant="top" src="https://images.unsplash.com/photo-1442570468985-f63ed5de9086?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dHJhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" height="300px"/>
                         
                         <Card.Body>
                             <ul>
@@ -38,9 +38,9 @@ function About() {
 
                     <Card>
                         <Card.Header>
-                        <h5><strong>Developer's Note</strong></h5>
+                        <h5><strong>Creator's Note</strong></h5>
                         </Card.Header>
-                        <Card.Img variant="top" src="https://www.irctctourism.com/gallery/assets/images/gallery/HILL%20RAILWAYS/Matheran%20Railway/4.jpg" height="300px"/>
+                        <Card.Img variant="top" src="https://images.unsplash.com/photo-1558346547-4439467bd1d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fGRldmVsb3BlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" height="300px"/>
                         <Card.Body>
                             <ul>
                                 <li>Developed by Saurabh S Raut</li>

@@ -28,6 +28,7 @@ export class RegistrationForm extends Component {
         passwordError: "",
         emailError: "",
         ageError: "",
+        contactError:"",
       },
       response: "",
     };
@@ -44,6 +45,7 @@ export class RegistrationForm extends Component {
         passwordError: "",
         emailError: "",
         ageError: "",
+        contactError:"",
       },
       [name]: value,
     });
@@ -55,17 +57,20 @@ export class RegistrationForm extends Component {
     if (this.state.name.length < 5) {
       er.nameError = "Name cannot be less than 5 characters!";
     }
-    if (this.state.username.length < 6) {
-      er.nameError = "UserName cannot be less than 6 characters!";
+    if (this.state.username.length < 5) {
+      er.usernameError = "UserName cannot be less than 5 characters!";
     }
-    if (this.state.password.length < 8) {
-      er.nameError = "Password cannot be less than 5 characters!";
+    if (this.state.password.length < 7) {
+      er.passwordError = "Password cannot be less than 8 characters!";
     }
     if (!validEmailRegex.test(this.state.email)) {
       er.emailError = "Invalid Email!";
     }
     if (this.state.age < 12) {
       er.ageError = "Age cannot be below 12!";
+    }
+    if (this.state.contact < 9) {
+      er.contactError = "Contact must be 10 digit only!";
     }
     this.setState({
       errors: er,
@@ -98,7 +103,7 @@ export class RegistrationForm extends Component {
           <div class="container register">
             <div class="row">
               <div class="col-md-3 register-left">
-                <img src="registerhere.png" alt="image" />
+                <img src="registerhere.png" alt="register here" />
                 <h3>Welcome</h3>
                 <p>You are 1 step away from being a part of us!</p>
                 <br />
@@ -162,6 +167,11 @@ export class RegistrationForm extends Component {
                       </div>
 
                       <div class="form-group">
+                      {this.state.errors.contactError && (
+                          <Alert variant="danger">
+                            {this.state.errors.contactError}
+                          </Alert>
+                        )}
                         <input
                           type="number"
                           name="contact"

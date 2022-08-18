@@ -71,7 +71,7 @@ export class MyBookings extends Component {
 
                                                             <Card style={{backgroundColor : "#99934d"}}>
                                                                 <Card.Title style={{marginLeft : "10px", paddingTop : '20px'}}>Seats :    {train.seats}</Card.Title>
-                                                                <Card.Title style={{marginLeft : "10px",}}>Date :     {train.date}</Card.Title>
+                                                                <Card.Title style={{marginLeft : "10px",}}>Date : 25-08-2022     {train.startDate}</Card.Title>
                                                             </Card>
 
                                                             <Card style={{backgroundColor : "#99934d"}}>

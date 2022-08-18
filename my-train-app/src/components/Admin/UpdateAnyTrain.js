@@ -96,15 +96,18 @@ export class UpdateAnyTrain extends Component {
                         </Form.Row>
 
                         <Form.Row>
+
+                        <Form.Group as={Col} controlId="formGridArrivalTime">
+                                <Form.Label>Arrival Time</Form.Label>
+                                <Form.Control type="text" name="arrivalTime" id="arrivalTime" value={arrivalTime} autocomplete="off" placeholder="Arrival" onChange={this.handleChange} />
+                            </Form.Group>
+                            
                             <Form.Group as={Col} controlId="formGridDepartureTime">
                                 <Form.Label>Departure Time</Form.Label>
                                 <Form.Control type="text" name="departureTime" id="departureTime" value={departureTime} autocomplete="off" placeholder="Departure" onChange={this.handleChange} />
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="formGridArrivalTime">
-                                <Form.Label>Arrival Time</Form.Label>
-                                <Form.Control type="text" name="arrivalTime" id="arrivalTime" value={arrivalTime} autocomplete="off" placeholder="Arrival" onChange={this.handleChange} />
-                            </Form.Group>
+                            
 
                             <Form.Group as={Col} controlId="formGridDuration">
                                 <Form.Label>Duration</Form.Label>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import TrainListService from '../../services/TrainListService'
 import {Link} from 'react-router-dom'
-import {Card, CardColumns, CardDeck, Carousel, Accordion, Button} from 'react-bootstrap'
+import {Card, CardDeck, Accordion, Button} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCamera, faDollarSign, faMoneyBill, faTrain , faUser, faTicketAlt, faShoppingBasket} from '@fortawesome/free-solid-svg-icons'
+import {  faDollarSign, faTrain , faUser, faTicketAlt, faShoppingBasket} from '@fortawesome/free-solid-svg-icons'
 
 export class TrainDetails extends Component {
 
@@ -23,73 +23,12 @@ export class TrainDetails extends Component {
     render() {
         return (
             <div>
-                <div>
-                <Carousel style={{width : "100%"}}>
-                    <Carousel.Item>
-                        <img
-                        className="d-block w-100"
-                        src="https://images.pexels.com/photos/5387999/pexels-photo-5387999.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" height="500px"
-                        alt="First slide"
-                        />
-                        <Carousel.Caption>
-                        <h1>Planning A Vacation ?</h1>
-                        <p>Choose from our exquisite trains for your dream holidays</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-
-                    <Carousel.Item>
-                        <img
-                        className="d-block w-100"
-                        src="https://images.pexels.com/photos/2031758/pexels-photo-2031758.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height="500px"
-                        alt="Second slide"
-                        />
-
-                        <Carousel.Caption>
-                        <h1>Want Affordable Rates ?</h1>
-                        <p>Choose from our most affordable trains to get value for money</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-
-                    <Carousel.Item>
-                        <img
-                        className="d-block w-100"
-                        src="https://images.pexels.com/photos/870318/pexels-photo-870318.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height="500px"
-                        alt="Third slide"
-                        />
-
-                        <Carousel.Caption>
-                        <h1>Want Luxurious Trains ?</h1>
-                        <p>Choose from one of our royal trains with special facilities!</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-
-                    <Carousel.Item>
-                        <img
-                        className="d-block w-100"
-                        src="https://images.pexels.com/photos/358167/pexels-photo-358167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height="500px"
-                        alt="Third slide"
-                        />
-
-                        <Carousel.Caption>
-                        <h1>Want to be on Time ?</h1>
-                        <p>Full refund guaranteed if you're late more than 2 hours!</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-
-                </Carousel>
-                </div>
-                
-                
-
-
-
-
                 <div className="container">
                 <Accordion>     
                     <Card className="border border-dark bg-black text-white" style={{marginTop : '30px'}}>
                         <Card.Header className="text-center" style={{ backgroundColor: 'dark'}}>
                             <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                            <strong style={{fontSize : '16px'}}><FontAwesomeIcon icon={faTrain} />{"    "}ALL TRAINS OF OUR NETWORK!</strong>
+                            <strong style={{fontSize : '16px'}}><FontAwesomeIcon icon={faTrain} />{"    "}CLICK HERE TO SEE ALL TRAINS!</strong>
                             </Accordion.Toggle>   
                         </Card.Header>
                         <Accordion.Collapse eventKey="0">
@@ -101,10 +40,10 @@ export class TrainDetails extends Component {
                                         <th style={{fontSize : '16px'}}>Name</th>
                                         <th style={{fontSize : '16px'}}>Source</th>
                                         <th style={{fontSize : '16px'}}>Destination</th>
-                                        <th style={{fontSize : '16px'}}>Departure Time</th>
                                         <th style={{fontSize : '16px'}}>Arrival Time</th>
-                                        <th style={{fontSize : '16px'}}>Seats</th>
-                                        <th style={{fontSize : '16px'}}>Date</th>                      
+                                        <th style={{fontSize : '16px'}}>Departure Time</th>
+                                        
+                                       
                                     </tr>
                                 </thead>
  
@@ -121,10 +60,10 @@ export class TrainDetails extends Component {
                                                     <td  style={{fontSize : '14px'}}><FontAwesomeIcon icon={faTrain} />     {train.name}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.source}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.destination}</td>
-                                                    <td  style={{fontSize : '14px'}}>{train.departureTime}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.arrivalTime}</td>
-                                                    <td  style={{fontSize : '14px'}}>{train.seatsLeft}</td>
-                                                    <td  style={{fontSize : '14px'}}>{train.date}</td>
+                                                    <td  style={{fontSize : '14px'}}>{train.departureTime}</td>
+                                                    
+                                                    
                                                 </tr>
                                             )
                                         
@@ -153,7 +92,7 @@ export class TrainDetails extends Component {
                                             <th style={{fontSize : '16px'}}><strong>Duration</strong></th>
                                             <th style={{fontSize : '16px'}}><strong>Fare(General)</strong></th>
                                             <th style={{fontSize : '16px'}}><strong>Fare(Ladies)</strong></th>                                        
-                                            <th style={{fontSize : '16px'}}><strong>Date</strong></th>                      
+                                            
                                         </tr>
                                     </thead>
     
@@ -171,7 +110,7 @@ export class TrainDetails extends Component {
                                                         <td  style={{fontSize : '14px'}}>{train.duration}</td>
                                                         <td  style={{fontSize : '14px'}}>{train.generalFare}</td>
                                                         <td  style={{fontSize : '14px'}}>{train.ladiesFare}</td>
-                                                        <td  style={{fontSize : '14px'}}>{train.date}</td>
+                                                        
                                                     </tr>
                                                 )
                                             

@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {authenticateUser} from '../../services/index'
 import {Row, Col, Card, Form, InputGroup, FormControl, Button, Alert} from 'react-bootstrap';

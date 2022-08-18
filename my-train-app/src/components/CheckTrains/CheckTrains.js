@@ -1,144 +1,259 @@
-import React, { Component } from 'react'
-// import CheckTrainService from '../../services/CheckTrainService'
-import CheckTrainService from '../../services/CheckTrainService'
-import {Card, Button, Carousel, CardDeck} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import React, { Component } from "react";
+import CheckTrainService from "../../services/CheckTrainService";
+import { Card, Button, CardDeck } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 export class CheckTrains extends Component {
-    
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-             source : "",
-             destination : "",
-             date : "",
-             result : [],
-             clicked : false
-        }
-    }
+  constructor(props) {
+    super(props);
 
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name] : e.target.value
-        })
-    }
+    this.state = {
+      source: "",
+      destination: "",
+      result: [],
+      clicked: false,
+    };
+  }
 
-    submitChange = (e) => {
-        e.preventDefault()
-        console.log(this.state)
-        CheckTrainService.checkTrains(this.state.source, this.state.destination, this.state.date).then((res) => {
-            this.setState({
-                result : res.data,
-                clicked : true
-            });
-        })
-    }
-     
-    render() {
-        const {source, destination, date } = this.state
-        return (
-            <div>
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
 
-                <Carousel style={{width : "100%"}}>
-                    <Carousel.Item>
-                        <img
-                        className="d-block w-100"
-                        src="https://images.unsplash.com/photo-1565108404384-2919e47c07c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" height="400px"
-                        alt="First slide"
-                        />
-                        <Carousel.Caption>
-                        <h1>Check for Available Trains</h1>
-                        <p>Enter the Source, Destination and Date of Travel.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
-                <div className="container">
-                <div>
-                    <form onSubmit={this.submitChange}>
-                        <div>
-                            <CardDeck style={{marginTop : "20px"}}>
-                                <Card>
-                                    <Card.Header className="text-white" style={{backgroundColor : "#490808"}}>FROM</Card.Header>
-                                    <Card.Text>
-                                        <input type="text" name="source" id="source"  autocomplete="off" value={source} placeholder="Source" onChange={this.handleChange}></input>
-                                    </Card.Text>
-                                </Card>
+  submitChange = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    CheckTrainService.checkTrains(
+      this.state.source,
+      this.state.destination,
+    ).then((res) => {
+      this.setState({
+        result: res.data,
+        clicked: true,
+      });
+    });
+  };
 
-                                <Card>
-                                    <Card.Header className="text-white" style={{backgroundColor : "#490808"}}>TO</Card.Header>
-                                    <Card.Text>
-                                    <input type="text" name="destination" id="destination"  autocomplete="off" value={destination} placeholder="Destination" onChange={this.handleChange}></input>
-                                    </Card.Text>
-                                </Card>
+  render() {
+    const { source, destination} = this.state;
+    return (
+      <div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <h1
+          className="text-black"
+          style={{ textAlign: "center", background: "#e4f5d5" }}
+        >
+          Check for Available Trains
+        </h1>
+        <h5
+          className="text-black"
+          style={{ textAlign: "center", background: "#e4f5d5" }}
+        >
+          Enter the Source & Destination
+        </h5>
 
-                                <Card >
-                                    <Card.Header className="text-white" style={{backgroundColor : "#490808"}}>DATE</Card.Header>
-                                    <Card.Text>
-                                        <input type="date" name="date" id="date" value={date} onChange={this.handleChange}></input>
-                                    </Card.Text>
-                                </Card>
-                            </CardDeck>
-                            <Button type="submit" style={{marginLeft:"45%", borderRadius:"40px"}}>Search</Button>
-                            
-                        </div>
-                    </form>
-                </div>
+        <div className="container">
+          <div>
+            <form onSubmit={this.submitChange}>
+              <div>
+                <CardDeck style={{ marginTop: "20px" }}>
+                  <Card>
+                    <Card.Header
+                      className="text-white"
+                      style={{ backgroundColor: "#490808" }}
+                    >
+                      FROM
+                    </Card.Header>
+                    <Card.Text>
+                      <input
+                        type="text"
+                        name="source"
+                        id="source"
+                        autocomplete="off"
+                        value={source}
+                        placeholder="Source"
+                        onChange={this.handleChange}
+                      ></input>
+                    </Card.Text>
+                  </Card>
 
-               
-                                    {
-                                         this.state.clicked === true && this.state.result.length !== 0 ?        
-                                            this.state.result.map(
-                                                train =>
-                                                <>
-                                                <Link to={"reserve/"+train.trainId}><Card key={train.trainId} style={{marginTop : '30px', paddingBottom : '20px'}}>
-                                                    <Card.Header className="text-white" style={{backgroundColor : 'black'}}>
-                                                       <strong>{train.name} ({train.trainId})</strong> 
-                                                    </Card.Header>
-                                                    
-                                                    <Card.Text>
-                                                            <br/>
-                                                            <CardDeck style={{marginLeft : '5px', marginRight : '5px', color : 'white'}}>
-                                                                <Card bg="light">
-                                                                    <Card.Title style={{marginLeft : "10px", paddingTop : '20px', color: 'black'}}>FROM :  <span style={{marginLeft : '20px'}}>{train.source}</span> </Card.Title>
-                                                                    <Card.Title style={{marginLeft : "10px", color : 'black'}}>TO :     <span style={{marginLeft : '50px'}}>{train.destination}</span></Card.Title>                                                                
-                                                                </Card>
-    
-                                                                <Card bg="light">
-                                                                    <Card.Title style={{marginLeft : "10px", paddingTop : '20px', color : 'black'}}>Departure :    <span style={{marginLeft : '10px'}}>{train.departureTime}</span></Card.Title>
-                                                                    <Card.Title style={{marginLeft : "10px", color : 'black'}}>Arrival :     <span style={{marginLeft : '40px'}}>{train.arrivalTime}</span></Card.Title>                                                               
-                                                                </Card>
-    
-                                                                <Card bg="light">
-                                                                    <Card.Title style={{marginLeft : "10px", paddingTop : '20px', color : 'black'}}>Seats :   <span style={{marginLeft : '10px'}}> {train.seatsLeft}</span></Card.Title>
-                                                                    <Card.Title style={{marginLeft : "10px", color : 'black'}}>Date :    <span style={{marginLeft : '20px'}}> {train.date}</span></Card.Title>
-                                                                </Card>
-    
-                                                                <Card bg="light">
-                                                                    <Card.Title style={{marginLeft : "10px", paddingTop : '20px', color : 'black'}}>GEN :    <span style={{marginLeft : '35px'}}>{train.generalFare} (INR)</span></Card.Title>
-                                                                    <Card.Title style={{marginLeft : "10px", color : 'black'}}>LADIES :     <span style={{marginLeft : '10px'}}>{train.ladiesFare} (INR)</span></Card.Title>
-                                                                </Card>
-                                                            </CardDeck>
-                                                            
-                                                        </Card.Text>
+                  <Card>
+                    <Card.Header
+                      className="text-white"
+                      style={{ backgroundColor: "#490808" }}
+                    >
+                      TO
+                    </Card.Header>
+                    <Card.Text>
+                      <input
+                        type="text"
+                        name="destination"
+                        id="destination"
+                        autocomplete="off"
+                        value={destination}
+                        placeholder="Destination"
+                        onChange={this.handleChange}
+                      ></input>
+                    </Card.Text>
+                  </Card>
 
-                                                </Card>
-                                                </Link>
-                                                </>
-                                            ) : this.state.clicked === false ?
-                                            <div className="container">                                                        
-                                            </div>: 
-                                            <div className="container">                                                        
-                                                <Card bg="dark" className="text-center text-warning" style={{width : '40%', marginLeft : '325px', marginTop : '10px', paddingTop :'20px'}}>
-                                                    <Card.Title><h3><strong>No Such Train Available!</strong></h3></Card.Title>
-                                                </Card>
-                                            </div>
-                                        
-                                    }
-                    </div>
-                </div>
-            
-        )
-    }
+                </CardDeck>
+                <Button
+                  type="submit"
+                  style={{ marginLeft: "45%", borderRadius: "40px" }}
+                >
+                  Search
+                </Button>
+              </div>
+            </form>
+          </div>
+
+          {this.state.clicked === true && this.state.result.length !== 0 ? (
+            this.state.result.map((train) => (
+              <>
+                <Link to={"reserve/" + train.trainId}>
+                  <Card
+                    key={train.trainId}
+                    style={{ marginTop: "30px", paddingBottom: "20px" }}
+                  >
+                    <Card.Header
+                      className="text-white"
+                      style={{ backgroundColor: "black" }}
+                    >
+                      <strong>
+                        {train.name} ({train.trainId})
+                      </strong>
+                    </Card.Header>
+
+                    <Card.Text>
+                      <br />
+                      <CardDeck
+                        style={{
+                          marginLeft: "5px",
+                          marginRight: "5px",
+                          color: "white",
+                        }}
+                      >
+                        <Card bg="light">
+                          <Card.Title
+                            style={{
+                              marginLeft: "10px",
+                              paddingTop: "20px",
+                              color: "black",
+                            }}
+                          >
+                            FROM :{" "}
+                            <span style={{ marginLeft: "20px" }}>
+                              {train.source}
+                            </span>{" "}
+                          </Card.Title>
+                          <Card.Title
+                            style={{ marginLeft: "10px", color: "black" }}
+                          >
+                            TO :{" "}
+                            <span style={{ marginLeft: "50px" }}>
+                              {train.destination}
+                            </span>
+                          </Card.Title>
+                        </Card>
+
+                        <Card bg="light">
+                          <Card.Title
+                            style={{
+                              marginLeft: "10px",
+                              paddingTop: "20px",
+                              color: "black",
+                            }}
+                          >
+                            Departure :{" "}
+                            <span style={{ marginLeft: "10px" }}>
+                              {train.departureTime}
+                            </span>
+                          </Card.Title>
+                          <Card.Title
+                            style={{ marginLeft: "10px", color: "black" }}
+                          >
+                            Arrival :{" "}
+                            <span style={{ marginLeft: "40px" }}>
+                              {train.arrivalTime}
+                            </span>
+                          </Card.Title>
+                        </Card>
+
+                        <Card bg="light">
+                          <Card.Title
+                            style={{
+                              marginLeft: "10px",
+                              paddingTop: "20px",
+                              color: "black",
+                            }}
+                          >
+                            Seats :{" "}
+                            <span style={{ marginLeft: "10px" }}>
+                              {" "}
+                              {train.seatsLeft}
+                            </span>
+                          </Card.Title>
+                          
+                        </Card>
+
+                        <Card bg="light">
+                          <Card.Title
+                            style={{
+                              marginLeft: "10px",
+                              paddingTop: "20px",
+                              color: "black",
+                            }}
+                          >
+                            GEN :{" "}
+                            <span style={{ marginLeft: "35px" }}>
+                              {train.generalFare} (INR)
+                            </span>
+                          </Card.Title>
+                          <Card.Title
+                            style={{ marginLeft: "10px", color: "black" }}
+                          >
+                            LADIES :{" "}
+                            <span style={{ marginLeft: "10px" }}>
+                              {train.ladiesFare} (INR)
+                            </span>
+                          </Card.Title>
+                        </Card>
+                      </CardDeck>
+                    </Card.Text>
+                  </Card>
+                </Link>
+              </>
+            ))
+          ) : this.state.clicked === false ? (
+            <div className="container"></div>
+          ) : (
+            <div className="container">
+              <Card
+                bg="dark"
+                className="text-center text-warning"
+                style={{
+                  width: "40%",
+                  marginLeft: "325px",
+                  marginTop: "10px",
+                  paddingTop: "20px",
+                }}
+              >
+                <Card.Title>
+                  <h3>
+                    <strong>No Such Train Available!</strong>
+                  </h3>
+                </Card.Title>
+              </Card>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 }
 
-export default CheckTrains
+export default CheckTrains;

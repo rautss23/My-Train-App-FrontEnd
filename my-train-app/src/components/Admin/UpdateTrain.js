@@ -50,8 +50,8 @@ export class UpdateTrain extends Component {
                                         <th style={{fontSize : '16px'}}>Name</th>
                                         <th style={{fontSize : '16px'}}>Source</th>
                                         <th style={{fontSize : '16px'}}>Destination</th>
-                                        <th style={{fontSize : '16px'}}>Departure Time</th>
                                         <th style={{fontSize : '16px'}}>Arrival Time</th>
+                                        <th style={{fontSize : '16px'}}>Departure Time</th>
                                         <th style={{fontSize : '16px'}}>Seats</th>
                                         <th style={{fontSize : '16px'}}>Date</th>  
                                         <th style={{fontSize : '16px'}}>Actions</th>                     
@@ -71,8 +71,8 @@ export class UpdateTrain extends Component {
                                                     <td  style={{fontSize : '14px'}}>{train.name}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.source}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.destination}</td>
-                                                    <td  style={{fontSize : '14px'}}>{train.departureTime}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.arrivalTime}</td>
+                                                    <td  style={{fontSize : '14px'}}>{train.departureTime}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.seatsLeft}</td>
                                                     <td  style={{fontSize : '14px'}}>{train.date}</td>
                                                     <td>

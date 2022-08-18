@@ -123,6 +123,14 @@ export class SearchTrainByName extends Component {
                     </Card>
 
                     <Card bg="light">
+                    <Card.Title
+                        style={{ marginLeft: "10px", color: "black" }}
+                      >
+                        Arrival :{" "}
+                        <span style={{ marginLeft: "40px" }}>
+                          {train.arrivalTime}
+                        </span>
+                      </Card.Title>
                       <Card.Title
                         style={{
                           marginLeft: "10px",
@@ -135,17 +143,10 @@ export class SearchTrainByName extends Component {
                           {train.departureTime}
                         </span>
                       </Card.Title>
-                      <Card.Title
-                        style={{ marginLeft: "10px", color: "black" }}
-                      >
-                        Arrival :{" "}
-                        <span style={{ marginLeft: "40px" }}>
-                          {train.arrivalTime}
-                        </span>
-                      </Card.Title>
+                      
                     </Card>
 
-                    <Card bg="light">
+                    {/* <Card bg="light">
                       <Card.Title
                         style={{
                           marginLeft: "10px",
@@ -159,16 +160,8 @@ export class SearchTrainByName extends Component {
                           {train.seatsLeft}
                         </span>
                       </Card.Title>
-                      <Card.Title
-                        style={{ marginLeft: "10px", color: "black" }}
-                      >
-                        Date :{" "}
-                        <span style={{ marginLeft: "20px" }}>
-                          {" "}
-                          {train.date}
-                        </span>
-                      </Card.Title>
-                    </Card>
+                      
+                    </Card> */}
 
                     <Card bg="light">
                       <Card.Title

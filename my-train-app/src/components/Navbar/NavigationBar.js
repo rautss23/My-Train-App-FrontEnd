@@ -4,7 +4,7 @@ import {Navbar, Nav} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {logoutUser} from '../../services/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDollarSign, faSignInAlt, faSignOutAlt, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import {  faSignInAlt, faSignOutAlt, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 class NavigationBar extends React.Component {
     
@@ -18,7 +18,6 @@ class NavigationBar extends React.Component {
                 <Nav className="mr-auto">
                     <Link to={"trainDetails"} className="nav-link">TRAINS</Link>
                     <Link to={"search"} className="nav-link">SEARCH</Link>
-                    <Link to={"trainDetails"} className="nav-link"><FontAwesomeIcon icon={faDollarSign}/>{" "} FARES</Link>
                     <Link to={"about"} className="nav-link">ABOUT</Link>
                 </Nav>
             <Nav className="navbar-right">
@@ -33,13 +32,12 @@ class NavigationBar extends React.Component {
                 <Nav className="mr-auto">
                     <Link to={"about"} className="nav-link">ABOUT</Link>
                     <Link to={"trainDetails"} className="nav-link">TRAINS</Link>
-                    <Link to={"search"} className="nav-link">SEARCH</Link>
-                    <Link to={"trainDetails"} className="nav-link"><FontAwesomeIcon icon={faDollarSign}/>{" "} FARES</Link>
-                    <Link to="/check" className="nav-link">TRAVEL</Link>                    
+                    {/* <Link to={"search"} className="nav-link">SEARCH</Link>
+                    <Link to="/check" className="nav-link">TRAVEL</Link>                     */}
                     <Link to="/admin" className="nav-link">ADMIN</Link>                                   
                 </Nav>
                 <Nav className="navbar-right">
-                    <Link to="/bookings" className="nav-link">MY BOOKINGS</Link>  
+                    {/* <Link to="/bookings" className="nav-link">MY BOOKINGS</Link>   */}
                     <Link to="/profile" className="nav-link"><FontAwesomeIcon icon={faUser}/>{" "} PROFILE</Link>   
                     <Link to="/logout" className="nav-link" onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt}/>{" "} LOGOUT</Link>
                 </Nav> 
@@ -52,7 +50,6 @@ class NavigationBar extends React.Component {
                     
                     <Link to={"trainDetails"} className="nav-link">TRAINS</Link>
                     <Link to={"search"} className="nav-link">SEARCH</Link>
-                    <Link to={"trainDetails"} className="nav-link"><FontAwesomeIcon icon={faDollarSign}/>{" "} FARES</Link>
                     <Link to="/check" className="nav-link">TRAVEL</Link>  
                     <Link to={"about"} className="nav-link">ABOUT</Link>                                   
                 </Nav>

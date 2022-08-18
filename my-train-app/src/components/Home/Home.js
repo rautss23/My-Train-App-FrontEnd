@@ -1,7 +1,7 @@
-import { faRegistered, faTicketAlt, faTrain, faUser } from '@fortawesome/free-solid-svg-icons'
+import {  faTicketAlt, faTrain, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import {Jumbotron, Card, CardColumns, Carousel, CardDeck} from 'react-bootstrap'
+import {Jumbotron, Card, CardColumns} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import './Home.css'
 
@@ -11,7 +11,7 @@ function Home() {
             
             <div className="container">
             <div >
-                <Jumbotron className="text-center bg-dark text-warning jumbotron" style={{marginTop : "20px"}}>
+                <Jumbotron className="text-center bg-dark text-info jumbotron" style={{marginTop : "20px"}}>
                     <marquee><h1><strong>Welcome to MyTrainApp</strong></h1></marquee>
                     <p className="text-white">
                         The Perfect train for the Perfect Destinations!
