@@ -12,6 +12,7 @@ function Home() {
             <div className="container">
             <div >
                 <Jumbotron className="text-center bg-dark text-info jumbotron" style={{marginTop : "20px"}}>
+                {/* eslint-disable-next-line */}
                     <marquee><h1><strong>Welcome to MyTrainApp</strong></h1></marquee>
                     <p className="text-white">
                         The Perfect train for the Perfect Destinations!
@@ -21,7 +22,7 @@ function Home() {
             <CardColumns>
                 <Link to="/register">
                     <Card bg="light">
-                    <Card.Img variant="top" src="https://www.irctctourism.com/gallery/assets/images/gallery/HILL%20RAILWAYS/Darjeeling%20Himalayan%20Railways/3.jpg" />
+                    <Card.Img variant="top" src="https://cdn.pixabay.com/photo/2019/10/02/04/40/registration-4519979_1280.jpg" />
                     <Card.Body>
                     <Card.Title><FontAwesomeIcon icon={faUser} />REGISTER NOW! </Card.Title>
                     <Card.Text><strong>
@@ -38,7 +39,7 @@ function Home() {
 
                 <Link to="/trainDetails">
                     <Card bg="dark">
-                    <Card.Img variant="top" src="https://www.irctctourism.com/gallery/assets/images/gallery/HILL%20RAILWAYS/Kangara%20Valley/4.jpg" />
+                    <Card.Img variant="top" src="https://images.pexels.com/photos/163580/cologne-central-station-railway-station-train-163580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
                     <Card.Body>
                     <Card.Title className="text-warning"><FontAwesomeIcon icon={faTrain} /> LOOK FOR TRAINS & FARES!</Card.Title>
                     <Card.Text className="text-white">
@@ -58,7 +59,7 @@ function Home() {
 
                 
                 <Link to="/login"><Card bg="light">
-                    <Card.Img variant="top" src="https://www.irctctourism.com/gallery/assets/images/gallery/HILL%20RAILWAYS/Matheran%20Railway/4.jpg" />
+                    <Card.Img variant="top" src="https://media.istockphoto.com/id/488212336/photo/railway-tickets-booking-and-railroad-travel-concept.webp?s=612x612&w=is&k=20&c=c2LmGN5aWF5UHQjdVs0e0DnxpPiONzj2Zsi35Hmk_CY=" />
                     <Card.Body>
                     <Card.Title><FontAwesomeIcon icon={faTicketAlt}/> BOOK YOUR TICKET NOW!</Card.Title>
                     <Card.Text>

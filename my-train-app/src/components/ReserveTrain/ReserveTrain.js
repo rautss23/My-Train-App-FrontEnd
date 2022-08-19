@@ -59,6 +59,15 @@ export class ReserveTrain extends Component {
         this.getUsername()
     }
 
+    disableDates=()=>{
+        var today,dd,mm,yyyy;
+        today=new Date();
+        dd=today.getDate()+1;
+        mm=today.getMonth()+1;
+        yyyy=today.getFullYear();
+        return dd+"-"+mm+"-"+yyyy;
+    }
+
 
     handleChange = e => {
         this.setState({
@@ -170,7 +179,8 @@ export class ReserveTrain extends Component {
                         
                          <Form.Group controlId="formGridDate">
                             <Form.Label>Date</Form.Label>
-                            <Form.Control type="date" name="date" id="date" value={date} onChange={this.handleDateChange}/>
+                            <Form.Control type="date" name="date" id="date" value={date} onChange={this.handleDateChange} min={this.disableDates()}/>
+                            
                         </Form.Group>
 
                         <Form.Group controlId="formGridSeats">

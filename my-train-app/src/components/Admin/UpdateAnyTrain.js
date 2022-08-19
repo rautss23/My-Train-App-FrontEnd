@@ -12,7 +12,6 @@ export class UpdateAnyTrain extends Component {
             name : "",
             source : "",
             destination : "",
-            date : "",
             departureTime : 0,
             arrivalTime : 0,
             duration : 0,
@@ -30,7 +29,6 @@ export class UpdateAnyTrain extends Component {
                 name : res.data.name,
                 source : res.data.source,
                 destination : res.data.destination,
-                date : res.data.date,
                 departureTime : res.data.departureTime,
                 arrivalTime : res.data.arrivalTime,
                 duration : res.data.duration,
@@ -63,7 +61,7 @@ export class UpdateAnyTrain extends Component {
     }
 
     render() {
-        const {trainId, name, source, destination, date, departureTime, arrivalTime, duration, seatsLeft, generalFare, ladiesFare} = this.state;
+        const {trainId, name, source, destination, departureTime, arrivalTime, duration, seatsLeft, generalFare, ladiesFare} = this.state;
         return (
             <div>
                 <div className="container">
@@ -127,10 +125,6 @@ export class UpdateAnyTrain extends Component {
                             </Form.Group>
                         </Form.Row>
 
-                        <Form.Group controlId="formGridDate">
-                            <Form.Label>Date</Form.Label>
-                            <Form.Control type="date" name="date" id="date" value={date} onChange={this.handleDateChange} />
-                        </Form.Group>
 
                         <Form.Group controlId="formGridSeats">
                             <Form.Label>Total Seats</Form.Label>
