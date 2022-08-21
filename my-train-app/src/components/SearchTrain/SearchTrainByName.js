@@ -48,7 +48,7 @@ export class SearchTrainByName extends Component {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h1 class ="bg-primary text-white">
+              <h1 className ="bg-primary text-white">
                 <strong>Search UR Train!</strong>
               </h1>
               <p className="container" style={{ width: "60%" }}>
@@ -58,7 +58,7 @@ export class SearchTrainByName extends Component {
                     name="search"
                     id="search"
                     value={search}
-                    autocomplete="off"
+                    autoComplete="off"
                     placeholder="Search Name..."
                     onChange={this.changeHandler}
                     style={{ color: "yellow" }}
@@ -146,22 +146,7 @@ export class SearchTrainByName extends Component {
                       
                     </Card>
 
-                    {/* <Card bg="light">
-                      <Card.Title
-                        style={{
-                          marginLeft: "10px",
-                          paddingTop: "20px",
-                          color: "black",
-                        }}
-                      >
-                        Seats :{" "}
-                        <span style={{ marginLeft: "10px" }}>
-                          {" "}
-                          {train.seatsLeft}
-                        </span>
-                      </Card.Title>
-                      
-                    </Card> */}
+                    
 
                     <Card bg="light">
                       <Card.Title

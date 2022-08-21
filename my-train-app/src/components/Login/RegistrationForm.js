@@ -100,9 +100,9 @@ export class RegistrationForm extends Component {
     return (
       <div>
         {this.state.response === "" ? (
-          <div class="container register">
-            <div class="row">
-              <div class="col-md-3 register-left">
+          <div className="container register">
+            <div className="row">
+              <div className="col-md-3 register-left">
                 <img src="registerhere.png" alt="register here" />
                 <h3>Welcome</h3>
                 <p>You are 1 step away from being a part of us!</p>
@@ -110,12 +110,12 @@ export class RegistrationForm extends Component {
                         <input type="submit" name="" value="Login"/>
                 </Link>
               </div>
-              <div class="col-md-9 register-right">
-                <div class="tab-content" id="myTabContent">
-                  <h3 class="register-heading">Register</h3>
-                  <div class="row register-form">
-                    <div class="col-md-6">
-                      <div class="form-group">
+              <div className="col-md-9 register-right">
+                <div className="tab-content" id="myTabContent">
+                  <h3 className="register-heading">Register</h3>
+                  <div className="row register-form">
+                    <div className="col-md-6">
+                      <div className="form-group">
                         {this.state.errors.nameError && (
                           <Alert variant="danger">
                             {this.state.errors.nameError}
@@ -123,8 +123,8 @@ export class RegistrationForm extends Component {
                         )}
                         <input
                           type="text"
-                          class="form-control"
-                          autocomplete="off"
+                          className="form-control"
+                          autoComplete="off"
                           placeholder="Name *"
                           value={name}
                           name="name"
@@ -134,7 +134,7 @@ export class RegistrationForm extends Component {
                         />
                       </div>
 
-                      <div class="form-group">
+                      <div className="form-group">
                         {this.state.errors.usernameError && (
                           <Alert variant="danger">
                             {this.state.errors.usernameError}
@@ -142,8 +142,8 @@ export class RegistrationForm extends Component {
                         )}
                         <input
                           type="text"
-                          class="form-control"
-                          autocomplete="off"
+                          className="form-control"
+                          autoComplete="off"
                           placeholder="Username *"
                           value={username}
                           name="username"
@@ -151,7 +151,7 @@ export class RegistrationForm extends Component {
                           onChange={this.changeHandler}
                         />
                       </div>
-                      <div class="form-group">
+                      <div className="form-group">
                         {this.state.errors.passwordError && (
                           <Alert variant="danger">
                             {this.state.errors.passwordError}
@@ -159,7 +159,7 @@ export class RegistrationForm extends Component {
                         )}
                         <input
                           type="password"
-                          class="form-control"
+                          className="form-control"
                           placeholder="Password *"
                           value={password}
                           name="password"
@@ -168,7 +168,7 @@ export class RegistrationForm extends Component {
                         />
                       </div>
 
-                      <div class="form-group">
+                      <div className="form-group">
                       {this.state.errors.contactError && (
                           <Alert variant="danger">
                             {this.state.errors.contactError}
@@ -177,7 +177,7 @@ export class RegistrationForm extends Component {
                         <input
                           type="number"
                           name="contact"
-                          class="form-control"
+                          className="form-control"
                           placeholder="Contact *"
                           value={contact}
                           id="contact"
@@ -185,8 +185,8 @@ export class RegistrationForm extends Component {
                         />
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
+                    <div className="col-md-6">
+                      <div className="form-group">
                         {this.state.errors.emailError && (
                           <Alert variant="danger">
                             {this.state.errors.emailError}
@@ -194,7 +194,7 @@ export class RegistrationForm extends Component {
                         )}
                         <input
                           type="email"
-                          class="form-control"
+                          className="form-control"
                           placeholder="Your Email *"
                           value={email}
                           name="email"
@@ -202,7 +202,7 @@ export class RegistrationForm extends Component {
                           onChange={this.changeHandler}
                         />
                       </div>
-                      <div class="form-group">
+                      <div className="form-group">
                         {this.state.errors.ageError && (
                           <Alert variant="danger">
                             {this.state.errors.ageError}
@@ -211,7 +211,7 @@ export class RegistrationForm extends Component {
                         <input
                           type="number"
                           name="age"
-                          class="form-control"
+                          className="form-control"
                           placeholder="Age *"
                           value={age}
                           id="age"
@@ -219,7 +219,7 @@ export class RegistrationForm extends Component {
                         />
                       </div>
 
-                      <div class="form-group">
+                      <div className="form-group">
                         <select
                           className="form-control"
                           id="gender"
@@ -235,7 +235,7 @@ export class RegistrationForm extends Component {
 
                       <input
                         type="submit"
-                        class="btnRegister"
+                        className="btnRegister"
                         value="Register"
                         onClick={this.submitHandler}
                       />

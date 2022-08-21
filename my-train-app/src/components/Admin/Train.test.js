@@ -47,3 +47,15 @@ test("Testing View All train funciton.", async () => {
     });
 
 });
+
+test("Testing Update order funciton.", async () => {
+
+    axios.put("http://localhost:8082/updateTrain", train).then(resp =>{
+
+        let train1 = result.data;
+
+        expect(train1).toBe(train1);
+
+    });
+
+});

@@ -65,7 +65,7 @@ export class ReserveTrain extends Component {
         dd=today.getDate()+1;
         mm=today.getMonth()+1;
         yyyy=today.getFullYear();
-        return dd+"-"+mm+"-"+yyyy;
+        return yyyy+"-"+mm+"-"+dd;
     }
 
 

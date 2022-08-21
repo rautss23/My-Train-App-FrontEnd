@@ -255,7 +255,7 @@ export class AddTrain extends Component {
                             
                             <input
                         type="submit"
-                        class="btnRegister"
+                        className="btnRegister"
                         value="ADD"
                         onClick={this.submitHandler}
                       />

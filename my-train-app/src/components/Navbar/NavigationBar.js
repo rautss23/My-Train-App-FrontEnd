@@ -32,12 +32,9 @@ class NavigationBar extends React.Component {
                 <Nav className="mr-auto">
                     <Link to={"about"} className="nav-link">ABOUT</Link>
                     <Link to={"trainDetails"} className="nav-link">TRAINS</Link>
-                    {/* <Link to={"search"} className="nav-link">SEARCH</Link>
-                    <Link to="/check" className="nav-link">TRAVEL</Link>                     */}
                     <Link to="/admin" className="nav-link">ADMIN</Link>                                   
                 </Nav>
                 <Nav className="navbar-right">
-                    {/* <Link to="/bookings" className="nav-link">MY BOOKINGS</Link>   */}
                     <Link to="/profile" className="nav-link"><FontAwesomeIcon icon={faUser}/>{" "} PROFILE</Link>   
                     <Link to="/logout" className="nav-link" onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt}/>{" "} LOGOUT</Link>
                 </Nav> 

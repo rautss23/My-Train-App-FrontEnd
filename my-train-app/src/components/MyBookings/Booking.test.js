@@ -29,14 +29,4 @@ test("Testing Add booking funciton.", async () => {
     });
 });
 
-// test("Testing Update order funciton.", async () => {
 
-//     axios.put("http://localhost:8092/booking/updateBooking/", car).then(resp =>{
-
-//         let carwash = result.data;
-
-//         expect(carwash).toBe(carwash);
-
-//     });
-
-// });
