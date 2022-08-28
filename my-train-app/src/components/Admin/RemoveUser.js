@@ -41,7 +41,7 @@ export class RemoveUser extends Component {
 
                     <Card.Body className="text-center" >
                         <form onSubmit={this.removeUser}>
-                            <input type="text" name="username" id="username" value={username} autocomplete="off" placeholder="Enter Username" onChange={this.changeHandler} required></input>
+                            <input type="text" name="username" id="username" style={{color:"red"}} value={username} autocomplete="off" placeholder="Enter Username" onChange={this.changeHandler} required></input>
                             <br/><br/>
                             <Button variant="danger" type="submit">Submit</Button>
                         </form>

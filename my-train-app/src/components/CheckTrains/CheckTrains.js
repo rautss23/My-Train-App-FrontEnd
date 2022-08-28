@@ -191,23 +191,6 @@ export class CheckTrains extends Component {
                               color: "black",
                             }}
                           >
-                            Seats :{" "}
-                            <span style={{ marginLeft: "10px" }}>
-                              {" "}
-                              {train.seatsLeft}
-                            </span>
-                          </Card.Title>
-                          
-                        </Card>
-
-                        <Card bg="light">
-                          <Card.Title
-                            style={{
-                              marginLeft: "10px",
-                              paddingTop: "20px",
-                              color: "black",
-                            }}
-                          >
                             GEN :{" "}
                             <span style={{ marginLeft: "35px" }}>
                               {train.generalFare} (INR)
@@ -229,7 +212,7 @@ export class CheckTrains extends Component {
               </>
             ))
           ) : this.state.clicked === false ? (
-            <div className="container"></div>
+            <div className="container" style={{color:"red"}}><p>Please, Enter valid source and destination</p></div>
           ) : (
             <div className="container">
               <Card
@@ -243,7 +226,7 @@ export class CheckTrains extends Component {
                 }}
               >
                 <Card.Title>
-                  <h3>
+                  <h3 style={{color:"red"}}>
                     <strong>No Such Train Available!</strong>
                   </h3>
                 </Card.Title>
