@@ -19,6 +19,8 @@ import UpdateTrain from './components/Admin/UpdateTrain';
 import UpdateAnyTrain from './components/Admin/UpdateAnyTrain';
 import ReserveTrain from './components/ReserveTrain/ReserveTrain';
 import Logout from './components/Login/Logout';
+import UsersTable from './components/Admin/UsersTable';
+import FinalChart from './components/Admin/FinalChart';
 
 function App() {
   return (
@@ -49,6 +51,8 @@ function App() {
                 <Route path='/about' component={About}></Route>
                 <Route path='/profile' component={Profile}></Route>
                 <Route path='/bookings' component={MyBookings}></Route>
+                <Route path='/allUsers' component={UsersTable}></Route>
+                <Route path='/ViewTicketsByTrain' component={FinalChart}></Route>
               </Switch>
               </div>
            </BrowserRouter>

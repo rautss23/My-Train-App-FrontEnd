@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import {Form, Card, Button, Col, Jumbotron} from 'react-bootstrap'
+import {Form, Card, Button, Col, Jumbotron, Accordion, Alert} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 export class ReserveTrain extends Component {
@@ -21,14 +21,80 @@ export class ReserveTrain extends Component {
             generalFare : 0,
             ladiesFare : 0,
             seats : 0,
+            psgName:"",
+            gender:"Male",
+            age:0,
             quota : 'General',
             totalFare : null,
             username : '',
             result : '',
             payment : false,
-            error : ''
+            error:'',
+            // values:[]
        }
+    //    this.handleSubmit1=this.handleSubmit1.bind(this);
     }
+
+    // // createUI(){
+    // //     return this.state.values1.map((el,i)=>
+    // //     <div key={i}>
+    // //         <input type='text' value={el||''}onChange={this.handleChange1.bind(this, i)} />
+    // //         <input type='button' value='remove' onClick={this.removeClick.bind(this, i)} />
+    // //     </div>
+    // //     )
+    // // }
+
+    // // handleChange1(i, event) {
+    // //     let values1 = [...this.state.values1];
+    // //     values1[i] = event.target.value;
+    // //     this.setState({ values1 });
+    // // }
+
+    // // addClick(){
+    // //     this.setState(prevState => ({ values: [...prevState.values1, '']}))
+    // //   }
+      
+    // //   removeClick(i){
+    // //      let values1 = [...this.state.values1];
+    // //      values1.splice(i,1);
+    // //      this.setState({ values1 });
+    // //   }
+
+    // //   handleSubmit1(event) {
+    // //     //alert('A name was submitted: ' + this.state.values1.join(', '));
+    // //     event.preventDefault();
+    // //   }
+
+    // createUI(){
+    //     return this.state.values.map((el,i)=>
+    //     <div key={i}>
+    //         <input type='text' value={el||''}onChange={this.handleChange1.bind(this, i)} />
+    //         <input type='button' value='remove' onClick={this.removeClick.bind(this, i)} />
+    //     </div>
+    //     )
+    // }
+
+    // handleChange1(i, event) {
+    //     let values = [...this.state.values];
+    //     values[i] = event.target.value;
+    //     this.setState({ values });
+    // }
+
+    // addClick(){
+    //     this.setState(prevState => ({ values: [...prevState.values, '']}))
+    //   }
+      
+    //   removeClick(i){
+    //      let values = [...this.state.values];
+    //      values.splice(i,1);
+    //      this.setState({ values });
+    //   }
+    
+    //   handleSubmit1(event) {
+    //     alert('A name was submitted: ' + this.state.values.join(', '));
+    //     event.preventDefault();
+    //   }
+    
 
     getUsername = () => {
         axios.get('http://localhost:8081/showProfile', { headers: {Authorization : `Bearer ${localStorage.getItem('jwtToken')}`} } )
@@ -53,7 +119,9 @@ export class ReserveTrain extends Component {
                 duration : res.data.duration,
                 seatsLeft : res.data.seatsLeft,
                 generalFare : res.data.generalFare,
-                ladiesFare : res.data.ladiesFare
+                ladiesFare : res.data.ladiesFare,
+               
+                
             })
         })
         this.getUsername()
@@ -69,11 +137,15 @@ export class ReserveTrain extends Component {
     }
 
 
-    handleChange = e => {
+    handleChange = (e) => {
+        e.preventDefault();
         this.setState({
+           
             [e.target.name] : e.target.value
-        })
+        });
        }
+
+
 
     
     handleDateChange = e => {
@@ -144,7 +216,7 @@ export class ReserveTrain extends Component {
     }
 
     render() {
-        const {trainId, name, source, destination, date, quota, seats} = this.state;
+        const {trainId, name, source, destination, date, psgName,age, quota, seats} = this.state;
         return (
             <div>
                 {this.state.result === '' ?
@@ -182,25 +254,52 @@ export class ReserveTrain extends Component {
                             <Form.Control type="date" name="date" id="date" value={date} onChange={this.handleDateChange} min={this.disableDates()}/>
                             
                         </Form.Group>
+                        {/* <div>
+                        <form onSubmit={this.handleSubmit1}>
+                            {this.createUI}
+                            <input type='button' value='add more' onClick={this.addClick.bind(this)}/>
+                            <input type="submit" value="Submit" />
+                        </form>
+                        </div> */}
+                        <Form.Row>
+                                            <Form.Group as={Col} controlId="formGridPsgName">
+                                             <Form.Label>Name</Form.Label>
+                                                 <Form.Control type="text" name="psgName" id="psgName" value={psgName} placeholder="Name" onChange={this.handleChange} required/>
+                                            </Form.Group>
 
-                        <Form.Group controlId="formGridSeats">
-                            <Form.Label>Seats</Form.Label>
-                            <Form.Control type="number" name="seats" id="seats" value={seats} placeholder="Seats" min = '1' max = '6' onChange={this.handleChange} />
-                        </Form.Group>
-
-                        <Form.Group controlId="formGridQuota">
+                                            <Form.Group as={Col} controlId="formGridAge">
+                                                 <Form.Label>Age</Form.Label>
+                                                     <Form.Control type="number" name="age" id="age" value={age} placeholder="Age" min='5' max ='90' onChange={this.handleChange} required/>
+                                             </Form.Group>
+                                                
+                                             <Form.Group as={Col} controlId="formGridGender">
+                                             <label for="gender"> Select you gender</label>
+                                        <select name="gender">
+                                            <option value="none" selected>Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">other</option>
+                                            </select>
+                                             </Form.Group>
+                            </Form.Row>
+                           
+                      
+                                       
+                                <Form.Group controlId="formGridQuota">
                             <Form.Label>Quota</Form.Label>
                             <select className="form-control" id="quota" name="quota" value={quota} onChange={this.handleChange} required>
                                                 <option value="General">General</option>
                                                 <option value="Ladies">Ladies</option>
                                             </select>
                         </Form.Group>
-                         
-                         
 
-                         <div>
+                        <Form.Group controlId="formGridSeats">
+                            <Form.Label>Seats</Form.Label>
+                            <Form.Control type="number" name="seats" id="seats" value={seats} placeholder="Seats" min = '1' max = '1' onChange={this.handleChange} />
+                        </Form.Group>
+                        <div>
                              <h3><Button variant = "danger"  onClick={this.fareCalculator}>Total Fare (INR)</Button>  {this.state.totalFare}</h3><span className="text-center"></span>
                          </div>
+                         
                         <Button variant="success" type="submit" block>
                             Submit
                         </Button>

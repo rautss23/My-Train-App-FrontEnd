@@ -64,9 +64,9 @@ function Dashboard() {
                     <Card bg="light">
                         
                         <Card.Body>
-                        <Link to="/removeUser"><Card.Title><FontAwesomeIcon icon = {faTrashAlt} /> REMOVE USER</Card.Title></Link>
+                        <Link to="/allUsers"><Card.Title><FontAwesomeIcon icon = {faTrashAlt} /> REMOVE USER</Card.Title></Link>
                         <Card.Text>
-                            You can remove a particular user if necessary. You just have to enter the username and he/she will be removed!
+                            You can remove a particular user if necessary. You just have to click on the button, he/she will be removed!
                         </Card.Text>
                         </Card.Body>
                         <Card.Footer>
@@ -74,6 +74,21 @@ function Dashboard() {
                         </Card.Footer>
                     </Card>
                 </CardDeck>
+
+                <CardDeck>
+                    <Card bg="light">
+                        
+                        <Card.Body>
+                        <Link to="/ViewTicketsByTrain"><Card.Title><FontAwesomeIcon icon = {faEye} /> VIEW BOOKINGS</Card.Title></Link>
+                        <Card.Text>
+                            You can view all the tickets booked by various users. The details willbe shown in the form of a table.
+                        </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                            <small className="text-muted"><i>Welcome Admin!</i></small>
+                        </Card.Footer>
+                    </Card>
+                    </CardDeck>
             </div>
 
         </div>
